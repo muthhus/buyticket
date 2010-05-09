@@ -1,0 +1,38 @@
+<link rel="stylesheet" type="text/css" href="../styles/calendar-rfq.css" />
+<link rel="stylesheet" type="text/css" href="../styles/ffDemo.css" />
+<script type="text/javascript" src="../scripts/jscalendar/calendar.js"></script>
+<script type="text/javascript" src="../scripts/jscalendar/calendar-setup.js"></script>
+<script type="text/javascript" src="../scripts/jscalendar/lang/calendar-en.js"></script>
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/interface.js"></script>
+<script type="text/javascript" src="../scripts/fastFind.js"></script>
+<script type="text/javascript">
+jQuery(function(){
+		jQuery('div#ifM_wrapper_1').fastFind(
+		{
+			url:	'../includes/',
+			params:	{ 'current':1,'previous':false,'apiKey':'bd51b06485' }
+		});
+		jQuery('.ifM_header a').click(function () {
+			var el = jQuery(this).parents('div.ifM_box').get(0);
+			jQuery(el).fastFindToggle(true);
+			return false;
+		});
+});
+</script>
+<div id="leftbox">
+                    <h1 class="aligntext">Browse Categories</h1>
+                    
+                    <div class="ifM_content">
+                    	<p class="ifM_more"><%= link_to "Movie", :controller => 'buyticket', :action => 'movie_home' %></p>
+   <p><%= link_to "Drama", :controller => 'buyticket', :action => 'drama' %></>
+   <p><%= link_to "Sports", :controller => 'buyticket', :action => 'sports' %></p>
+   <p><%= link_to "Music", :controller => 'buyticket', :action => 'music' %></p>
+   <p><%= link_to "Hot Event", :controller => 'buyticket', :action => 'local_event' %></p>
+                         </div>
+                    
+                    <div class="ifM_back">
+                        <%= link_to "Back", :controller => 'buyticket', :action => 'index' %>
+                    </div>
+                </div>
+            </div>

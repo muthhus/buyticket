@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Buy Ticket - Online tickets for Movie, Sports, Drama, Magic Shows,Local Events...</title>
+        <%= stylesheet_link_tag "common" %>
+        <%= stylesheet_link_tag "niftyCorners" %>
+        <%= stylesheet_link_tag "calendar-rfq" %>
+        <%= stylesheet_link_tag "ffDemo" %>
+        <%= javascript_include_tag "h_menu.js" %>
+        <%= javascript_include_tag "niftycube.js" %>
+        <%= javascript_include_tag "/jscalendar/calendar.js" %>
+        <%= javascript_include_tag "/jscalendar/calendar-setup.js" %>
+        <%= javascript_include_tag "/jscalendar/lang/calendar-en.js" %>
+        <%= javascript_include_tag "jquery.js" %>
+        <%= javascript_include_tag "interface.js" %>
+        <%= javascript_include_tag "fastFind.js" %>
+    </head>
+    <body>
+        <div id="divcontainer">
+            <%= render :partial => '/includes/header' %>
+            <div id="content_part">
+                <div id="left_part">
+                    <script type="text/javascript">
+                        jQuery(function(){
+                            jQuery('div#ifM_wrapper_1').fastFind({
+                                url: '../includes/',
+                                params: {
+                                    'current': 1,
+                                    'previous': false,
+                                    'apiKey': '8cfd86175'
+                                }
+                            });
+                            jQuery('.ifM_header a').click(function(){
+                                var el = jQuery(this).parents('div.ifM_box').get(0);
+                                jQuery(el).fastFindToggle(true);
+                                return false;
+                            });
+                        });
+                    </script>
+                    <div id="leftbox">
+                        <h1 class="aligntext">Browse Categories</h1>
+                        <div class="ifM_box" id="debug">
+                            <div class="ifM_header">
+                            </div>
+                            <div class="ifM_wrapper" id="ifM_wrapper_1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="middle_part">
+                    <div id="openbox_ads">
+                        <img src="../images/New Banner.jpg" width="612px" height="87px" />
+                        <table width="100%" border="0" height="">
+                            <tr>
+                                <td>
+                                    <h3>Order Confirmation</h3>
+                                </td>
+                            </tr>
+                        </table>
+						<% for product in @products -%>
+						<% if cart_item == @current_item -%>
+                        <table border="0" width="100%" height="">
+                            <tr>
+                                <td colspan="2">
+                                    <form name="f2" action="">
+                                        <table border="0" width="100%" height="">
+                                            <tr>
+                                                <td width="10%" bgcolor="#87CEEB" height="30px" align="center">
+                                                    &nbsp;
+                                                </td>
+                                                <td width="15%" bgcolor="#87CEEB" height="30px" align="center">
+                                                    <h4>Product Title</h4>
+                                                </td>
+                                                <td width="10%" bgcolor="#87CEEB" height="30px" align="center">
+                                                    <h4>Price</h4>
+                                                </td>
+                                                <td width="10%" bgcolor="#87CEEB" height="30px" align="center">
+                                                    <h4>Quantity</h4>
+                                                </td>
+                                                <td width="15%" bgcolor="#87CEEB" height="30px" align="center">
+                                                    <h4>Tax</h4>
+                                                </td>
+                                                <td width="15%" bgcolor="#87CEEB" height="30px" align="center">
+                                                    <h4>Total</h4>
+                                                </td>
+                                            </tr>
+											<% i1=0 -%>
+                                            <% if (i1==(i1/2)*2) -%>
+                                            <tr>
+                                                <td bgColor="#F0F8FF" align="center">
+                                                    <img src="<%= product.image_url%>" width="50" height="32">
+                                                    </img>
+                                                </td>
+                                                <td bgColor="#F0F8FF" align="center">
+                                                    <%= h(product.name) %>
+                                                </td>
+                                                <td bgColor="#F0F8FF" align="center">
+                                                    <%= number_to_currency(product.price) %>
+                                                </td>
+                                                <td bgColor="#F0F8FF" align="center">
+                                                    <%=h(cart_item.quantity) %>
+                                                </td>
+                                                <td bgColor="#F0F8FF" align="center">
+                                                    <%=h(product.name) %>
+                                                </td>
+                                                <td bgColor="#F0F8FF" align="center">
+                                                    <%= number_to_currency(cart_item.price) %>
+                                                </td>
+                                            </tr>
+                                            <% else %>
+                                            <tr>
+                                                <td bgColor="#ADD8E6" align="center">
+                                                    <img src="<%= images %>" width="50" height="32">
+                                                    </img>
+                                                </td>
+                                                <td bgColor="#ADD8E6" align="center">
+                                                    <%=h(product.name) %>
+                                                </td>
+                                                <td bgColor="#ADD8E6" align="center">
+                                                    <%= number_to_currency(product.price) %>
+                                                </td>
+                                                <td bgColor="#ADD8E6" align="center">
+                                                    <%=h(product.name) %>
+                                                </td>
+                                                <td bgColor="#ADD8E6" align="center">
+                                                    <%=h(product.name) %>
+                                                </td>
+                                                <td bgColor="#ADD8E6" align="center">
+                                                    <%=h(product.name) %>
+                                                </td>
+                                            </tr>
+											<% end -%>
+                                        </table>
+                                        <hr>
+                                        </td>
+                                        <tr>
+                                            <td width="93%">
+                                                <table border="0" width="28%" align="right">
+                                                    <tr>
+                                                        <td width="15%" align="left">
+                                                            SubTotal
+                                                        </td>
+                                                        <td width="15%" align="right">
+                                                            <%=h(product.name) %>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="15%">
+                                                            Flat Rate
+                                                        </td>
+                                                        <td width="15%" align="right">
+                                                            <%=h(product.name) %>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="15%" align="left">
+                                                            Total
+                                                        </td>
+                                                        <td width="15%" align="right">
+                                                            <%=h(product.name) %>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="7%">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table width="100%" border="0">
+                                                    <tr>
+                                                        <td>
+                                                            <input type="button" name="pay" class="btn_yellow1" value="Payment" onclick="oncheckout();"/>
+                                                        </td>
+                                                        <td align="right">
+                                                            <input type="image" name="submit" src="images/checkout.gif" onclick="onpaypal();"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+									<%end %>
+									<% end %>
+                                    </form>
+                                </div>
+                                </div>
+                                <div id="right_part">
+                                    <div id="rightbox">
+                                        <h1 class="aligntext">Login / Register</h1>
+                                        <table width="94%" align="center" border="0" cellpadding="2" cellspacing="0">
+                                            <tr>
+                                                <td class="smalltxt">
+                                                    Candidate:
+                                                </td>
+                                                <td align="right">
+                                                    <%= link_to "Login", :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register", :action =>'register' %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="smalltxt">
+                                                    Staff:
+                                                </td>
+                                                <td align="right">
+                                                    <%= link_to "Login", :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register", :action =>'register' %>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div id="rightbox">
+                                        <h1 class="aligntext">Hot Offers</h1>
+                                        <div id="rightalign">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Two Thousand Tyco EF11 Capaciters Needed ...</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Five Thousand Tyco EF64 Capaciters Needed ...</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Thousand Tyco EF11 Capaciters Needed ...</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Five Thousand Tyco RFC4 Capaciters Needed ...</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="rightbox_adv">
+                                        <div id="rightalign_adv">
+                                            <a href="#"><img src="../images/Anandha-Thandavam.jpg" width="160" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="footer">
+                                <p>
+                                    &copy; 2009 &mdash; Buy Ticket Ltd. All Rights Reserved.
+                                </p>
+                            </div>
+                            </body>
+                        </html>

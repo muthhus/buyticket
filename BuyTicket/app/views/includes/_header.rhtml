@@ -1,0 +1,50 @@
+<div id="divheader">
+<div id="topleft">
+<img src="../images/btlogo.jpg"  />
+</div>
+<div id="topright">
+<a href="#"><img src="../images/main_image.jpg" width="720" height="129" /></a></td>
+</div>
+<div id="menupart">
+<div id="topmenupart">
+<ul>
+<li><%= link_to "Printable Resume", :controller => 'buyticket', :action => 'shanmuga' %></li>
+   <li><%= link_to "Feedback",:controller => 'buyticket',  :action => 'feedback' %></li>
+<li><%= link_to "FAQ", :controller => 'quips', :action => 'search' %></li>
+   <li class="last"><%= link_to "Contact Us",:controller => 'quips', :action => 'search' %></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="subhorz_menu">
+ <div id="menu">
+  <ul id="navmenu">
+   <li><%= link_to "Home", :controller => 'buyticket', :action => 'index' %></li>
+   <li><%= link_to "Buy Ticket", :controller => 'buyticket', :action => 'buy' %></li>
+   <li><%= link_to "Movie", :controller => 'buyticket', :action => 'movie_home' %></li>
+   <li><%= link_to "Drama", :controller => 'buyticket', :action => 'drama' %></li>
+   <li><%= link_to "Sports", :controller => 'buyticket', :action => 'sports' %></li>
+   <li><%= link_to "Music", :controller => 'buyticket', :action => 'music' %></li>
+   <li><%= link_to "Hot Event", :controller => 'buyticket', :action => 'local_event' %></li>
+   </ul>
+ </div>
+<div id="menu">
+<ul id="navmenu1">
+<li> [<a href="#">Advanced Search</a>] </li>
+<li><input type="submit" class="btn_blue" value=" Go " /></li>
+<li><input type="text" class="in_search" value="" /></li>
+<li><select name="search_cat" size="1">
+     <option value="">All</option>
+     <option value="">Movies</option>
+     <option value="">Music</option>
+     <option value="">Drama</option>
+     <option value="">Sports</option>
+     <option value="">Magic Shows</option>
+     <option value="">Local Events</option>
+     <option value="">Others</option>
+   </select></li>
+<li>Search:</li>
+</ul>
+</div>
+</div>

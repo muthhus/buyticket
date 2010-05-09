@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Buy Ticket - On Line</title>
+        <%= stylesheet_link_tag "common" %>
+        <%= stylesheet_link_tag "niftyCorners" %>
+        <%= stylesheet_link_tag "calendar-rfq" %>
+        <%= stylesheet_link_tag "ffDemo" %>
+        <%= javascript_include_tag "h_menu.js" %>
+        <%= javascript_include_tag "niftycube.js" %>
+        <%= javascript_include_tag "/jscalendar/calendar.js" %>
+        <%= javascript_include_tag "/jscalendar/calendar-setup.js" %>
+        <%= javascript_include_tag "/jscalendar/lang/calendar-en.js" %>
+        <%= javascript_include_tag "jquery.js" %>
+        <%= javascript_include_tag "interface.js" %>
+        <%= javascript_include_tag "fastFind.js" %>
+    </head>
+    <body>
+        <div id="divcontainer">
+            <%= render :partial => '/includes/header' %>
+            <div id="content_part">
+                <div id="left_part">
+                    <script type="text/javascript">
+                        jQuery(function(){
+                            jQuery('div#ifM_wrapper_1').fastFind({
+                                url: '../includes/sample-output.php',
+                                params: {
+                                    'current': 1,
+                                    'previous': false,
+                                    'apiKey': 'bd51b0648d268122996b9e68cfd86175'
+                                }
+                            });
+                            jQuery('.ifM_header a').click(function(){
+                                var el = jQuery(this).parents('div.ifM_box').get(0);
+                                jQuery(el).fastFindToggle(true);
+                                return false;
+                            });
+                        });
+                    </script>
+                    <div id="leftbox">
+                        <h1 class="aligntext">Browse Categories</h1>
+                        <div class="ifM_content">
+                            <p class="ifM_more">
+                                <%= link_to "Movie", :controller => 'buyticket', :action => 'movie_home' %>
+                            </p>
+                            <p>
+                            <%= link_to "Drama", :controller => 'buyticket', :action => 'drama' %></>
+                            <p>
+                                <%= link_to "Sports", :controller => 'buyticket', :action => 'sports' %>
+                            </p>
+                            <p>
+                                <%= link_to "Music", :controller => 'buyticket', :action => 'music' %>
+                            </p>
+                            <p>
+                                <%= link_to "Hot Event", :controller => 'buyticket', :action => 'local_event' %>
+                            </p>
+							<p><%= link_to "My Resume", :controller => 'buyticket', :action => 'index' %></p>
+                        </div>
+                        <div class="ifM_back">
+                            <%= link_to "Back", :controller => 'buyticket', :action => 'index' %>
+                        </div>
+                    </div>
+                </div>
+                <div id="middle_part">
+                    <div id="openbox_ads">
+                        <img src="../images/New Banner.jpg" width="612px" height="87px" />
+                    </div>
+                    <table width="100%" border="0">
+                        <tr width="80%">
+                            <td align="right">
+                                <font color="red">
+                                    * Required Information
+                                </font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <label for="firstname">
+                                                Name
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input id="firstname" name="firstname" />
+                                            <font color="red">
+                                                <b>*</b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="email">
+                                                Email
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input id="email" name="email" />
+                                            <font color="red">
+                                                <b>*</b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="phone">
+                                                Phone Number
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input maxlength="10" name="bill_phone" type="text"/>
+                                            <font color="red">
+                                                <b>*</b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="subject">
+                                                Subject
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input id="subject" name="subject" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="comments">
+                                                Comments
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <textarea id="comments" name="comments" cols=40 rows=6>
+                                            </textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <%= submit_tag "Submit", :class=> "submit" %>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="right_part">
+                    <div id="rightbox">
+                        <h1 class="aligntext">Login / Register</h1>
+                        <table width="94%" align="center" border="0" cellpadding="2" cellspacing="0">
+                            <tr>
+                                <td class="smalltxt">
+                                    Candidate:
+                                </td>
+                                <td align="right">
+                                    <%= link_to "Login",:controller => 'login', :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register",:controller => 'buyticket', :action =>'register' %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="smalltxt">
+                                    Staff:
+                                </td>
+                                <td align="right">
+                                    <%= link_to "Login",:controller => 'login', :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register",:controller => 'buyticket', :action =>'register' %>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="rightbox_adv">
+                        <div id="rightalign_adv">
+                            <h1>No:1- Drama</h1>
+                            <a href="#"><img src="../images/873.jpg" width="160" /></a>
+                        </div>
+                    </div>
+                    <div id="rightbox_adv">
+                        <div id="rightalign_adv">
+                            <h1>No:1- Today Show</h1>
+                            <a href="#"><img src="../images/Drama_25.jpg" width="160" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <p>
+                    &copy; 2009 Buy Ticket Ltd. All rights reserved.
+                </p>
+            </div>
+            </body>
+        </html>

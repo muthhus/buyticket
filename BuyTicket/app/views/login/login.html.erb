@@ -1,0 +1,27 @@
+
+<div id="middle_part">
+ <div id="openbox">
+ 	<h1 class="aligntext">Adminstrator Login</h1>
+    <table>
+    <% form_tag do %>
+     <tr>
+      <td><label for="name">Administrator Name:</label></td>
+      <td><%= text_field_tag :name, params[:name] %></td>
+     </tr>
+     <tr>
+     <td><label for="password">Password:</label></td>
+      <td><%= password_field_tag :password, params[:password] %></td>
+     </tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td>
+      <%= submit_tag "Login" %>
+      </td>
+     </tr>
+      <% end %>  
+	  
+	  </table>
+	  
+
+</div>
+</div>

@@ -1,0 +1,44 @@
+<h1>Order Detail - Please Enter Your Details</h1>
+<%= error_messages_for 'order' %>
+
+    
+	<table>
+		<% form_for :order, :url => { :action => :save_order } do |form| %>
+      <tr>
+        <td><label for="order_name">Name:</label></td>
+        <td><%= form.text_field :name, :size => 40 %></td>
+      </tr>
+
+      <tr>
+        <td><label for="order_address">Address:</label></td>
+        <td><%= form.text_area :address, :rows => 3, :cols => 40 %></td>
+      </tr>
+
+      <tr>
+        <td><label for="order_email">E-Mail:</label></td>
+        <td><%= form.text_field :email, :size => 40 %></td>
+      </tr>
+
+      <tr>
+       <td> <label for="order_pay_type">Pay with:</label></td>
+        <td><%=
+          form.select :pay_type,
+                       Order::PAYMENT_TYPES, 
+                      :prompt => "Select a payment method"
+        %></td>
+      </tr>
+	  
+	  <br/>
+	  <tr>
+	  	<td>
+	  		&nbsp;
+	  	</td>
+    <tr>
+    	<td colspan="2" align="center">
+    		<%= submit_tag "Place Order", :class => "submit" %>
+    	</td>
+    </tr>
+      
+    <% end %>  
+  
+</table>

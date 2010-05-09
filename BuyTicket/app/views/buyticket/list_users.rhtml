@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Buy Ticket - Online tickets for Movie, Sports, Drama, Magic Shows,Local Events...</title>
+<%= stylesheet_link_tag "common" %>
+	<%= stylesheet_link_tag "niftyCorners" %>
+	<%= stylesheet_link_tag "calendar-rfq" %>
+	<%= stylesheet_link_tag "ffDemo" %>
+	
+	<%= javascript_include_tag "h_menu.js" %>
+	<%= javascript_include_tag "niftycube.js" %>
+	<%= javascript_include_tag "/jscalendar/calendar.js" %>
+	<%= javascript_include_tag "/jscalendar/calendar-setup.js" %>
+	<%= javascript_include_tag "/jscalendar/lang/calendar-en.js" %>
+	<%= javascript_include_tag "jquery.js" %>
+	<%= javascript_include_tag "interface.js" %>
+	<%= javascript_include_tag "fastFind.js" %>
+</head>
+<body>
+
+<div id="divcontainer">
+<%= render :partial => '/includes/header' %>
+
+<div id="content_part">
+<div id="left_part">
+ <script type="text/javascript">
+ jQuery(function(){
+ 		jQuery('div#ifM_wrapper_1').fastFind(
+ 		{
+ 			url:	'../includes/',
+ 			params:	{ 'current':1,'previous':false,'apiKey':'8cfd86175' }
+ 		});
+ 		jQuery('.ifM_header a').click(function () {
+ 			var el = jQuery(this).parents('div.ifM_box').get(0);
+ 			jQuery(el).fastFindToggle(true);
+ 			return false;
+ 		});
+ });
+ </script>
+ <div id="leftbox">
+  <h1 class="aligntext">Browse Categories</h1>
+  <p>
+        <%= link_to "Products",   :controller => 'buyticket', :action => 'list_product' %>
+      </p>
+      <p>
+        <%= link_to "List users", :controller => 'buyticket', :action => 'list_users' %>
+        <br/>
+        <%= link_to "Add user",   :controller => 'buyticket', :action => 'add_user' %>
+      </p>
+      <p>
+        <%= link_to "Logout",     :controller => 'buyticket', :action => 'logout' %>
+      </p>
+  
+ </div>
+
+ </div>
+ <div id="middle_part">
+ <div id="openbox">
+  <h1 class="aligntext">Administrators</h1>
+  <div id="middlealign">
+    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+    	
+    <ul>
+      <% for user in @all_users %>
+        <li><%= link_to "[X]", { # link_to options
+                                 :controller => 'buyticket', 
+                                 :action => 'delete_user',
+                                 :id => user},
+                               { # html options
+                                 :method  => :post,
+                                 :confirm => "Really delete #{user.name}?"
+                               } %>
+            <%= h(user.name) %>
+        </li>
+      <% end %>
+</ul>
+    </tr>
+     </form>
+    </table>
+ </div>
+ </div>
+</div>
+
+<div id="right_part">
+ 
+
+ <div id="rightbox">
+  <h1 class="aligntext">Hot Offers</h1>
+   
+    
+    <a href="#"><img src="../images/Karthik-Anitha.jpg" width="160" /></a>
+   
+ </div>
+
+ <div id="rightbox_adv">
+   <div id="rightalign_adv">
+   	<h1>Block Buster Movies</h1>
+    <a href="#"><img src="../images/sarvam.jpg" width="160" /></a>
+   </div>
+ </div>
+</div>
+
+</div>
+<div id="footer"><p>&copy; 2009 Buy Ticket Ltd. All rights reserved.</p></div>
+</body>
+</html>

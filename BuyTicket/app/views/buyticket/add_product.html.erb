@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Buy Ticket - Online tickets for Movie, Sports, Drama, Magic Shows,Local Events...</title>
+        <%= stylesheet_link_tag "common","buyticket" %>
+        <%= stylesheet_link_tag "niftyCorners" %>
+        <%= stylesheet_link_tag "calendar-rfq" %>
+        <%= stylesheet_link_tag "ffDemo" %>
+        <%= javascript_include_tag "h_menu.js" %>
+        <%= javascript_include_tag "niftycube.js" %>
+        <%= javascript_include_tag "/jscalendar/calendar.js" %>
+        <%= javascript_include_tag "/jscalendar/calendar-setup.js" %>
+        <%= javascript_include_tag "/jscalendar/lang/calendar-en.js" %>
+        <%= javascript_include_tag "jquery.js" %>
+        <%= javascript_include_tag "interface.js" %>
+        <%= javascript_include_tag "fastFind.js" %>
+    </head>
+    <body>
+        <div id="divcontainer">
+        <%= render :partial => '/includes/header' %>
+        <div id="content_part">
+            <div id="left_part">
+                <script type="text/javascript">
+                    jQuery(function(){
+                        jQuery('div#ifM_wrapper_1').fastFind({
+                            url: '../includes/',
+                            params: {
+                                'current': 1,
+                                'previous': false,
+                                'apiKey': '8cfd86175'
+                            }
+                        });
+                        jQuery('.ifM_header a').click(function(){
+                            var el = jQuery(this).parents('div.ifM_box').get(0);
+                            jQuery(el).fastFindToggle(true);
+                            return false;
+                        });
+                    });
+                </script>
+                <div id="leftbox">
+                    <h1 class="aligntext">Browse Categories</h1>
+                    <div class="ifM_box" id="debug">
+                        <div class="ifM_header">
+                        </div>
+                        <div class="ifM_wrapper" id="ifM_wrapper_1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="middle_part">
+                <div id="openbox_ads">
+                    <img src="../images/New Banner.jpg" width="612px" height="87px" />
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <div class="depot-form">
+                                    <%= error_messages_for 'product' %>
+                                    <%form_for :product, :url => {:action => :add_new} do |form| %>
+                                    <tr>
+                                        <td valign="top">
+                                            <label for="product_name">
+                                                Product Name:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :name, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_description">
+                                                Description:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :description, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_price">
+                                                Price:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :price, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_category">
+                                                Category:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :category, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_imageurl">
+                                                Image URL:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :image_url, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_starring">
+                                                Starring:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :starring, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_singer">
+                                                Singer:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :singer, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_director">
+                                                Director:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :director, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_producer">
+                                                Producer:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :Producer, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="product_music">
+                                                Music:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <%= form.text_field :Music, :size =>40 %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <%= submit_tag "Add New Product", :class =>"submit" %>
+                                        </td>
+                                    </tr>
+                                    <%end %>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="right_part">
+                <div id="rightbox">
+                    <h1 class="aligntext">Login / Register</h1>
+                    <table width="94%" align="center" border="0" cellpadding="2" cellspacing="0">
+                        <tr>
+                            <td class="smalltxt">
+                                Candidate:
+                            </td>
+                            <td align="right">
+                                <%= link_to "Login", :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register", :action =>'register' %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="smalltxt">
+                                Staff:
+                            </td>
+                            <td align="right">
+                                <%= link_to "Login", :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register", :action =>'register' %>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="rightbox">
+                    <h1 class="aligntext">Hot Offers</h1>
+                    <div id="rightalign">
+                        <ul>
+                            <li>
+                                <a href="#">Two Thousand Tyco EF11 Capaciters Needed ...</a>
+                            </li>
+                            <li>
+                                <a href="#">Five Thousand Tyco EF64 Capaciters Needed ...</a>
+                            </li>
+                            <li>
+                                <a href="#">Thousand Tyco EF11 Capaciters Needed ...</a>
+                            </li>
+                            <li>
+                                <a href="#">Five Thousand Tyco RFC4 Capaciters Needed ...</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="rightbox_adv">
+                    <div id="rightalign_adv">
+                        <h1>Event: Magic Shows</h1>
+                        <a href="#"><img src="../images/Drama_25.jpg" width="160" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>
+                &copy; 2009 &mdash; Buy Ticket Ltd. All Rights Reserved.
+            </p>
+        </div>
+    </body>
+</html>

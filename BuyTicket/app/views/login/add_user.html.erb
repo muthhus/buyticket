@@ -1,0 +1,33 @@
+<h1>Add User</h1>
+
+  <%= error_messages_for 'user' %>
+<table>
+	<tr>
+		<td>
+			
+	 
+
+    <% form_for :user do |form| %>
+      <tr>
+        <td><label for="user_name">Name:</label></td>
+        <td><%= form.text_field :name, :size => 40 %></td>
+      </tr>
+
+      <tr>
+        <td><label for="user_password">Password:</label></td>
+        <td><%= form.password_field :password, :size => 40 %></td>
+      </tr>
+
+      <tr>
+       <td> <label for="user_password_confirmation">Confirm:</label></td>
+        <td><%= form.password_field :password_confirmation, :size => 40 %></td>
+      </tr>
+     <tr>
+     <td colspan="2" align="center"> <%= submit_tag "Add User", :class => "submit" %></td>
+    </tr>
+    <% end %>  
+  
+		</td>
+	</tr>
+ 
+  </table>

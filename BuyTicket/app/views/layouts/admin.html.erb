@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Buy Ticket - Online tickets for Movie, Sports, Drama, Magic Shows,Local Events...</title>
+<%= stylesheet_link_tag "common", "scaffold","buyticket", :media => "all" %>
+	<%= stylesheet_link_tag "niftyCorners" %>
+	<%= stylesheet_link_tag "calendar-rfq" %>
+	<%= stylesheet_link_tag "ffDemo" %>
+	
+	<%= javascript_include_tag "h_menu.js" %>
+	<%= javascript_include_tag "niftycube.js" %>
+	<%= javascript_include_tag "/jscalendar/calendar.js" %>
+	<%= javascript_include_tag "/jscalendar/calendar-setup.js" %>
+	<%= javascript_include_tag "/jscalendar/lang/calendar-en.js" %>
+	<%= javascript_include_tag "jquery.js" %>
+	<%= javascript_include_tag "interface.js" %>
+	<%= javascript_include_tag "fastFind.js" %>
+</head>
+<body>
+
+<div id="divcontainer">
+<%= render :partial => '/includes/header' %>
+
+<div id="content_part">
+<div id="left_part">
+ <script type="text/javascript">
+ jQuery(function(){
+ 		jQuery('div#ifM_wrapper_1').fastFind(
+ 		{
+ 			url:	'../includes/',
+ 			params:	{ 'current':1,'previous':false,'apiKey':'8cfd86175' }
+ 		});
+ 		jQuery('.ifM_header a').click(function () {
+ 			var el = jQuery(this).parents('div.ifM_box').get(0);
+ 			jQuery(el).fastFindToggle(true);
+ 			return false;
+ 		});
+ });
+ </script>
+  <div id="leftbox">
+                    <h1 class="aligntext">Browse Categories</h1>
+                    
+                    <div class="ifM_content">
+                    	<p>
+        <%= link_to "Products",   :controller => 'admin', :action => 'list_product' %>
+      </p>
+      <p>
+        <%= link_to "List users", :controller => 'login', :action => 'list_users' %>
+       
+        <%= link_to "Add user",   :controller => 'login', :action => 'add_user' %>
+      </p>
+      <p>
+        <%= link_to "Logout",     :controller => 'login', :action => 'logout' %>
+      </p>
+	  <p><%= link_to "My Resume", :controller => 'buyticket', :action => 'index' %></p>
+                       </div>
+                    
+                    <div class="ifM_back">
+                        <%= link_to "Back", :controller => 'buyticket', :action => 'index' %>
+                    </div>
+                </div>
+            </div>
+ 
+   
+<div id="middle_part">
+ <div id="openbox_ads">
+   <% if flash[:notice] -%>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end -%>
+      <%= yield :layout %>
+   
+ </div>
+  			
+</div>
+<div id="right_part">
+ <div id="rightbox">
+   <h1 class="aligntext">Login / Register</h1>
+    <table width="94%" align="center" border="0" cellpadding="2" cellspacing="0">
+     <tr>
+      <td class="smalltxt">Candidate:</td>
+      <td align="right">
+      <%= link_to "Login",:controller => 'login', :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register",:controller => 'buyticket', :action =>'register' %></td>
+     </tr>
+     <tr>
+      <td class="smalltxt">Staff:</td>
+      <td align="right">
+      <%= link_to "Login",:controller => 'login', :action =>'login' %>&nbsp;|&nbsp;<%= link_to "Register",:controller => 'buyticket', :action =>'register' %></td>
+      </tr>
+    </table>
+   </div>
+
+ <div id="rightbox_adv">
+   <div id="rightalign_adv">
+   	<h1>New Release</h1>
+    <a href="#"><img src="../images/Siva-Mansula-Sakthi.jpg" width="160" /></a>
+     
+   </div>
+ </div>
+
+ <div id="rightbox_adv">
+   <div id="rightalign_adv">
+   	<h1>Event: Magic Shows</h1>
+    <a href="#"><img src="../images/Drama_25.jpg" width="160" /></a>
+	
+ </div>
+</div>
+
+</div>
+<div id="footer"><p>&copy; 2009 &mdash; Buy Ticket Ltd. All Rights Reserved.</p></div>
+</body>
+</html>

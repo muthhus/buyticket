@@ -1,0 +1,21 @@
+<h1>New product</h1>
+<table>
+	<% form_tag :action => 'add_new' do %>
+	<tr>
+		<td align="center">
+			<%= render :partial => 'form' %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<%= submit_tag "Add" %>
+		</td>
+		
+		<td align="left">
+			<%= link_to 'Back', :action => 'list_product' %>
+		</td>
+	</tr>
+  
+	<% end %>
+		
+</table>

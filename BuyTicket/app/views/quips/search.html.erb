@@ -1,0 +1,19 @@
+<h1>Search quips</h1>
+<%= image_tag 'loading.gif', :id=>'spinner',  
+              :style=>"display:none; float:right;" %>
+
+<% form_tag do %>
+  <%= text_field_tag 'search', @search %>
+  <%= observe_field :search,                 
+                    :frequency => 0.5,       
+                    :update => 'search-results',
+                    :complete=>"Element.hide('spinner')",
+                    :before=>"Element.show('spinner')",
+                    :with=>"'search=' + encodeURIComponent(value)",
+                    :url=>{:action=>'search'} %>
+  </image>
+<% end %>
+<div id="search-results">
+<%= render :partial=>'search_results' %>
+</div>
+<%= link_to 'List', :action => 'list' %>

@@ -1,0 +1,47 @@
+<table border="0" width="100%" height="90%" align="center">
+    <hr/>
+    <tr>
+        <% for product in @products %>
+        <td width="10%" valign="top">
+            <table border="0">
+                <tr>
+                    <td>
+                        <img src="<%= product.image_url%>" width="114" height="140" />
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%">
+                        <b>Name: </b><%= h(product.name) %>
+                        <br/>
+                        <b>Description: </b><%= h(product.description) %>
+                        <br/>
+                        <b>Price: </b><%= number_to_currency(product.price) %>
+                        <br/>
+                        <b>Starring: </b><%= h(product.starring) %>
+                        <br/>
+                        <b>Singer: </b><%= h(product.singer) %>
+                        <br/>
+                        <b>Director: </b><%= h(product.director) %>
+                        <br/>
+                        <b>Producer: </b><%= h(product.Producer) %>
+                        <br/>
+                        <b>Music: </b><%= h(product.Music) %>
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+            <table border="1">
+                <tr>
+                    <td>
+                        <% form_remote_tag :url =>{:action => :add_to_cart, :id => product} do %>
+                        <%= submit_tag "Add to Cart", :class => "submit" %>
+                        <%end %>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <%end %>
+    </tr>
+</table>

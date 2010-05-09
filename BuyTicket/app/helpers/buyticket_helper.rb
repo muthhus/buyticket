@@ -1,0 +1,2 @@
+module BuyticketHelper
+end

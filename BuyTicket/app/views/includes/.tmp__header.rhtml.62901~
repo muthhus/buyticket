@@ -1,0 +1,48 @@
+<div id="divheader">
+<div id="topleft">
+<img src="../images/bad.gif" />
+</div>
+<div id="topright">
+<a href="#"><img src="../images/main_image.jpg" width="720" height="129" /></a></td>
+</div>
+<div id="menupart">
+<div id="topmenupart">
+<ul>
+<li><%= link_to "About Us", :action => 'about_us' %></li>
+   <li><%= link_to "FAQ", :action => 'login_ror' %></li>
+<li><%= link_to "Help", :action => '#' %></li>
+   <li class="last"><%= link_to "Contact Us", :action => 'contact' %></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="subhorz_menu">
+ <div id="menu">
+  <ul id="navmenu">
+   <li><%= link_to "Home", :action => 'about_us' %></li>
+   <li><%= link_to "About Us", :action => 'about_us' %></li>
+   <li><%= link_to "Our Values", :action => 'our_values' %></li>
+   <li><%= link_to "Local Center", :action => 'localcenter' %></li>
+   <li><%= link_to "Vacancies With Us", :action => 'vacancies' %></li>
+  </ul>
+ </div>
+<div id="menu">
+<ul id="navmenu1">
+<li> [<a href="#">Advanced Search</a>] </li>
+<li><input type="submit" class="btn_blue" value=" Go " /></li>
+<li><input type="text" class="in_search" value="" /></li>
+<li><select name="search_cat" size="1">
+     <option value="">All</option>
+     <option value="">Ruby on Rails</option>
+     <option value="">LAMP</option>
+     <option value="">JAVA</option>
+     <option value="">SPRING</option>
+     <option value="">WEB 2.0</option>
+     <option value="">XML/XSLT AND SOA</option>
+     <option value="">DESIGN PATTERN</option>
+   </select></li>
+<li>Search:</li>
+</ul>
+</div>
+</div>
