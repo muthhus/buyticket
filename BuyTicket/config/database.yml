@@ -40,8 +40,8 @@ production:
   adapter: mysql
   encoding: utf8
   database: osshanmuga_public
-  username: rorshanmuga
-  password: vijaya13
+  username: 
+  password: 
   host: osshanmuga.aptanacloud.com
   socket: /tmp/mysql.sock
   port: 3306
