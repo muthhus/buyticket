@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title><%= controller.action_name %>-blocks upload </title>
+<meta name="keywords" content="<%= @meta_keywords %>" />
+<meta name="description" content="<%= @meta_description %>" />
+
+<%= stylesheet_link_tag "common",:media => "all" %>
+
+    </head>
+<body>
+
+<div id="divcontainer">
+	
+<div id="content">				
+   					<% if flash[:notice] -%>
+      						<div id="notice"><%= flash[:notice] %></div>
+    					<% end -%>
+     			
+		 		<%= yield :layout %>
+</div>
+<div id="footer">
+</div>
+</div>
+</body>
+</html>
+

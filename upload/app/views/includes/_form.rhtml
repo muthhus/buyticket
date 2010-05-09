@@ -1,0 +1,32 @@
+<tr>
+<td>
+<label for="block">Block:</label></td>
+<td> <%= select("item",
+                        "block_id",
+                         Block.find(:all).collect { |p| [p.block_name, p.block_id] }, {:include_blank => 'Select Block' } ) %><br/></td>
+</tr>
+<tr>
+<td><label for="category">Category:</label></td>
+<td><%= select("item",
+                        "category_id",
+                         Category.find(:all).collect { |p| [p.category_name, p.category_id] }, {:include_blank => 'Select Type' },{:onchange => "check_selected_value('item_category_id')"} ) %><br/></td>
+</tr>
+<tr>
+<td>
+<label for="expiry_date">Expiry Date</label></td>
+<td><%= text_field "item", "expiry_date" ,:disable=>' true' %> <br/></td>
+</tr>
+
+<script type="text/javascript">
+
+   function check_selected_value(el) { 
+   if (document.getElementById(el).value != "2") { 
+
+      document.getElementById('item_expiry_date').disabled = true; 
+   } 
+    else {    
+
+   document.getElementById('item_expiry_date').disabled = false; 
+   } 
+
+ } </script> 

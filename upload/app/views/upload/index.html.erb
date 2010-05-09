@@ -1,0 +1,52 @@
+<br/><br/><div class="cornerspace">
+                <b class="roundcorner">
+                        <b class="cornertop1">&nbsp;</b>
+                                        <b class="cornertop2">&nbsp;</b>
+                                        <b class="cornertop3">&nbsp;</b>
+                                        <b class="cornertop4">&nbsp;</b>
+                                        <b class="cornertop5">&nbsp;</b>
+                                </b>
+                <div class="cornerfg">
+                    <div class="panel_head">
+                      Uploads
+                    </div>
+<table>
+<tr>
+<td colspan="2">
+<% form_tag( {:action=>'create'}, :multipart=>true) do  %>
+<% if flash[:error]|| flash[:notice] %>
+    <div class="error"><%= flash[:error] %></div>
+    <div class="notice"><%= flash[:notice] %> </div>
+  <% end -%>
+</td>
+</tr>
+ <%= render :partial => '/includes/form' %>
+<tr>
+<td>
+<label for="upload">File</label></td>
+<td><%= file_field("upload", "upload", :class => 'textinput') %> <br/></td>
+</tr>
+<tr>
+<td colspan="2">
+<%= image_submit_tag "/images/upload.jpg", :class => "submit" -%>
+</td>
+</tr>
+
+<% end %>
+</table>
+
+
+
+</div>
+
+
+                                <b class="roundcorner">
+                                        <b class="cornerbtm1">&nbsp;
+                                        </b>
+                                        <b class="cornerbtm2">&nbsp;</b>
+                                        <b class="cornerbtm3">&nbsp;</b>
+                                        <b class="cornerbtm4">&nbsp;</b>
+                                        <b class="cornerbtm5">&nbsp;</b>
+                        </b>
+            </div>
+

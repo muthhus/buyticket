@@ -1,0 +1,155 @@
+<div class="cornerspace">
+                <b class="roundcorner">
+                        <b class="cornertop1">&nbsp;</b>
+                                        <b class="cornertop2">&nbsp;</b>
+                                        <b class="cornertop3">&nbsp;</b>
+                                        <b class="cornertop4">&nbsp;</b>
+                                        <b class="cornertop5">&nbsp;</b>
+                                </b>
+                <div class="cornerfg">
+                    <div class="panel_head">
+                     Report
+                    </div>
+
+
+<table border="1" cellpadding="1" cellspacing="1">
+ <tr>
+<th>Block Name</th>
+<th>Post Code</th>
+<th>Build Date</th>
+<th>Management Assessment</th>
+<th>Free Risk Agreement</th>
+<th>Asbestos Survey</th>
+</tr> 
+ <% for list_item in @list_item %> 
+<tr>
+	<td><%= link_to list_item.block_name, :controller => 'content', :action => 'show', :id=>list_item.id %></td>
+	<td><%= list_item.post_code %></td>
+	<td><%= list_item.build_date %></td>
+	<% category_name = h(list_item.category_name) %>
+	
+	<% @category_id = Upload.find_by_sql("select category_id from uploads where block_id=11")
+		cat_id = @category_id.length
+	%>
+	<% for cat_ids in @category_id %>
+	 <% asbes = h(cat_ids.category_id).to_i %>
+	 <% if asbes=3 %>
+	   <td><p>This is Asbestos docs</p></td>
+	 <% else %>
+	 	<td> Not upload</td>
+	<% end %>
+	   
+	 <% if cat_ids.category_id==2 %>
+	  <td> <p>This is FR docs</p>  </td>
+	  <% else %>
+	 	<td> Not upload</td>
+	<% end %>  
+	
+	<% if cat_ids.category_id==1 %>
+	  <td> <p>This is Manage docs</p>  </td>
+	   <% else %>
+	   <td> Not upload</td>
+	   
+	 <% end %>
+		Cat_id:<%= h(cat_ids.category_id) %>|
+	<% end %>
+	<!--
+	<% if category_name.include? 'Management' %>
+		<td><%= list_item.created_at.to_date %></td><br/>
+		length:<%= cat_id %>
+	 <% else %>
+		<td> Not uploaded </td>
+	<% end %>
+	 <% if category_name.include? 'Fire' %>
+		<td><%= list_item.expiry_date %>-(expiry_date)<br/>
+		    <%= list_item.created_at %> </td>
+	<% else %>
+		<td> Not uploaded  </td>
+	<% end %>
+
+	<% if category_name.include? 'Asbestos' %>
+		<td><%= list_item.created_at.to_date %></td>
+	<% else %>
+		<td> Not uploaded </td>
+	<% end %>
+-->
+</tr>
+
+<% end %>
+</table>
+</div>
+				<b class="roundcorner">
+					<b class="cornerbtm1">&nbsp;
+					</b>
+					<b class="cornerbtm2">&nbsp;</b>
+					<b class="cornerbtm3">&nbsp;</b>
+					<b class="cornerbtm4">&nbsp;</b>
+					<b class="cornerbtm5">&nbsp;</b>
+			</b>
+            </div>
+			
+			<br/>
+		<!--	
+			<div class="cornerspace">
+                <b class="roundcorner">
+                        <b class="cornertop1">&nbsp;</b>
+                                        <b class="cornertop2">&nbsp;</b>
+                                        <b class="cornertop3">&nbsp;</b>
+                                        <b class="cornertop4">&nbsp;</b>
+                                        <b class="cornertop5">&nbsp;</b>
+                                </b>
+								
+								               <div class="cornerfg">
+                    <div class="panel_head">
+                     Report
+                    </div>
+
+
+<table border="1" cellpadding="1" cellspacing="1">
+ <tr>
+<th>Block Name</th>
+<th>Post Code</th>
+<th>Build Date</th>
+<th>Management Assessment</th>
+<th>Free Risk Agreement</th>
+<th>Asbestos Survey</th>
+</tr> 
+ <% for list_item in @list %> 
+<tr>
+	<td><%= link_to list_item.block_name, :controller => 'content', :action => 'show', :id=>list_item.id %></td>
+	<td><%= list_item.post_code %></td>
+	<td><%= list_item.build_date %></td> 
+	<% category_name = h(list_item.category_name) %>
+	<% if category_name.include? 'Management' %>
+		<td><%= list_item.created_at %></td>
+	 <% else %>
+		<td> Not uploaded </td>
+	<% end %>
+	 <% if category_name.include? 'Fire' %>
+		<td><%= list_item.expiry_date %>-(expiry_date)<br/>
+		    <%= list_item.created_at %> </td>
+	<% else %>
+		<td> Not uploaded  </td>
+	<% end %>
+
+	<% if category_name.include? 'Asbestos' %>
+		<td><%= list_item.created_at %></td>
+	<% else %>
+		<td> Not uploaded </td>
+	<% end %>
+
+</tr>
+
+<% end %>
+</table>
+</div>
+				<b class="roundcorner">
+					<b class="cornerbtm1">&nbsp;
+					</b>
+					<b class="cornerbtm2">&nbsp;</b>
+					<b class="cornerbtm3">&nbsp;</b>
+					<b class="cornerbtm4">&nbsp;</b>
+					<b class="cornerbtm5">&nbsp;</b>
+			</b>
+            </div>
+-->
